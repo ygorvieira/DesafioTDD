@@ -17,7 +17,7 @@ namespace DesafioTDD
             }
             else
             {
-                produto.Codigo = int.MinValue;
+                produto.Codigo = null;
                 return produto;
             }
         }
@@ -48,7 +48,11 @@ namespace DesafioTDD
 
         private static bool ValidaCodigo(Produto produto)
         {
-            return !(produto.Codigo <= 0 || Math.Floor(Math.Log10(produto.Codigo) + 1) != 6);
+            if (produto.Codigo != null)
+            {
+                return !(produto.Codigo.Length <= 0 || produto.Codigo.Length != 6);
+            }
+            else return true;
         }
     }
 }

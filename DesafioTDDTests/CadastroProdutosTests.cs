@@ -18,7 +18,7 @@ namespace DesafioTDDTests
             };
 
             var resultado = CadastroService.CadastroProduto(produto);
-            Assert.IsTrue(resultado.Codigo < 0);
+            Assert.IsNull(resultado.Codigo);
         }
 
         //- O campo ‘Valor de custo’ deve ser maior do que zero
@@ -28,12 +28,12 @@ namespace DesafioTDDTests
             var produto = new Produto
             {
                 Nome = "Produto",
-                Codigo = 100000,
+                Codigo = "100000",
                 ValorCusto = -1
             };
 
             var resultado = CadastroService.CadastroProduto(produto);
-            Assert.IsTrue(resultado.Codigo < 0);
+            Assert.IsNull(resultado.Codigo);
         }
 
         //- A quantidade de caracteres do campo ‘Nome’ deve ser inferior a 100
@@ -43,12 +43,12 @@ namespace DesafioTDDTests
             var produto = new Produto
             {
                 Nome = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum nisi, facilisis ac erat nec, vestibulum sagittis sem. Sed tristique lobortis lorem, quis vulputate diam tincidunt quis. Aenean dictum ligula ut placerat bibendum. Cras finibus, quam eu elementum sodales, est risus elementum leo, a placerat ex erat sit amet quam. Quisque molestie pulvinar odio vel rutrum. Praesent nec euismod nisl, vitae placerat turpis. Fusce non laoreet nisi. Aliquam faucibus ac dolor quis congue. Aliquam erat volutpat. Nullam in pretium dui, nec tristique dolor. Sed turpis risus, rutrum et porttitor at, aliquam a nisi. Cras viverra nisi id dolor hendrerit malesuada.",
-                Codigo = 100000,
+                Codigo = "100000",
                 ValorCusto = 10
             };
 
             var resultado = CadastroService.CadastroProduto(produto);
-            Assert.IsTrue(resultado.Codigo < 0);
+            Assert.IsNull(resultado.Codigo);
         }
 
         //- A quantidade de caracteres do campo ‘Descrição’ deve ser inferior a 500
@@ -59,25 +59,13 @@ namespace DesafioTDDTests
             {
                 Nome = "Produto Teste",
                 Descricao = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu fermentum lorem, efficitur varius nisi. Pellentesque vel nunc et justo pulvinar suscipit. Praesent venenatis finibus dui, a sagittis nisi tempus eu. Curabitur eros ante, cursus eu velit pulvinar, tempus ornare arcu. Maecenas non porttitor justo, et finibus mi. Pellentesque congue felis ante. Sed efficitur mauris ac consequat mollis. Fusce ligula sem, consequat eget lobortis semper, pharetra a turpis. Vivamus tincidunt, turpis ut blandit maximus, est tortor egestas magna, ut feugiat neque purus ut tellus. Phasellus ligula dui, luctus tristique sollicitudin eu, placerat cursus dui.
-                            Donec ornare,
-                            lacus eget commodo accumsan,
-                            eros libero hendrerit neque,
-                            non vehicula nibh elit ut sem.Proin ac aliquet augue,
-                            ornare consectetur nisl.Proin bibendum ipsum id nunc mollis,
-                            non fringilla libero vulputate.Etiam viverra aliquet arcu,
-                            sit amet tristique ipsum.Donec odio dui,
-                            auctor et elit non,
-                            ornare elementum sapien.Donec at magna sagittis,
-                            tincidunt nisi sit amet,
-                            facilisis elit.Suspendisse nec massa erat.Suspendisse at vulputate nibh.Aliquam diam nulla,
-                            malesuada at lorem ac,
-                            interdum pretium lacus.Curabitur aliquet diam id eros elementum porta.Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-                            per inceptos himenaeos.Aliquam erat volutpat.Ut ex neque,
-                            sagittis sit amet elementum sed,
-                            ullamcorper sed quam.
-                            Aliquam bibendum,
-                            nisl ullamcorper blandit feugiat,
-                            urna nibh iaculis nisl,
+                            Donec ornare, lacus eget commodo accumsan, eros libero hendrerit neque, non vehicula nibh elit ut sem.Proin ac aliquet augue,
+                            ornare consectetur nisl.Proin bibendum ipsum id nunc mollis, non fringilla libero vulputate.Etiam viverra aliquet arcu,
+                            sit amet tristique ipsum.Donec odio dui, auctor et elit non, ornare elementum sapien.Donec at magna sagittis,
+                            tincidunt nisi sit amet, facilisis elit.Suspendisse nec massa erat.Suspendisse at vulputate nibh.Aliquam diam nulla,
+                            malesuada at lorem ac, interdum pretium lacus.Curabitur aliquet diam id eros elementum porta.Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+                            per inceptos himenaeos.Aliquam erat volutpat.Ut ex neque, sagittis sit amet elementum sed, ullamcorper sed quam.
+                            Aliquam bibendum, nisl ullamcorper blandit feugiat, urna nibh iaculis nisl,
                             ut eleifend justo dolor in diam.Nullam finibus enim quis lorem gravida,
                             id vestibulum arcu tempor.Vivamus vulputate nisl a nulla mollis convallis.Praesent eleifend posuere augue eget efficitur.Donec eros ipsum,
                             pellentesque non molestie vitae,
@@ -111,12 +99,12 @@ namespace DesafioTDDTests
                             non faucibus ex placerat non.Praesent lacus magna,
                             sagittis varius lorem sed,
                             feugiat efficitur eros.Etiam laoreet tempor.",
-                Codigo = 100000,
+                Codigo = "100000",
                 ValorCusto = 100
             };
 
             var resultado = CadastroService.CadastroProduto(produto);
-            Assert.IsTrue(resultado.Codigo < 0);
+            Assert.IsNull(resultado.Codigo);
         }
         //- O campo ‘Código do produto’ deverá conter, exatamente, 6 caracteres
         [TestMethod]
@@ -125,12 +113,12 @@ namespace DesafioTDDTests
             var produto = new Produto
             {
                 Nome = "Produto Teste",
-                Codigo = 1,
+                Codigo = "1",
                 ValorCusto = 10
             };
 
             var resultado = CadastroService.CadastroProduto(produto);
-            Assert.IsTrue(resultado.Codigo < 0);
+            Assert.IsNull(resultado.Codigo);
         }
 
         //- O ‘Valor de venda’ será calculado automaticamente, onde constituirá do ‘Valor de custo’ + 15% de seu valor
@@ -140,7 +128,7 @@ namespace DesafioTDDTests
             var produto = new Produto
             {
                 Nome = "Produto Teste",
-                Codigo = 100000,
+                Codigo = "100000",
                 ValorCusto = 100
             };
 
